@@ -109,7 +109,11 @@ function App() {
           >
             <Reveal delay={0}>
               <p className="font-mono text-sm font-medium uppercase tracking-[0.12em] text-accent">
-                -- Hola, soy Leonel Hernández
+                <span
+                  aria-hidden="true"
+                  className="mr-[0.55em] inline-block h-px w-[1.6em] bg-current align-middle"
+                />
+                Hola, soy Leo!
               </p>
             </Reveal>
             <Reveal delay={0}>
