@@ -105,7 +105,7 @@ function App() {
         <main className="relative z-10 px-[var(--gutter)] pt-[calc(88px+env(safe-area-inset-top))] side:ml-[var(--side-w)] side:w-[calc(100%-var(--side-w))] side:px-[var(--main-px)] side:pt-0">
           <Section
             id="inicio"
-            innerClassName="flex flex-col py-6 pb-8 side:min-h-svh side:justify-center side:py-16"
+            innerClassName="flex min-h-[calc(100svh-88px-env(safe-area-inset-top))] flex-col justify-center py-6 pb-8 side:min-h-svh side:py-16"
           >
             <Reveal delay={0}>
               <p className="font-mono text-sm font-medium uppercase tracking-[0.12em] text-accent">
