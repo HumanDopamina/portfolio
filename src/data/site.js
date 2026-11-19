@@ -81,7 +81,7 @@
         name: 'Sistema Clínico Dental',
         kind: 'Aplicación web Full Stack',
         year: '2025',
-        url: 'https://github.com/tu-usuario',
+        url: 'https://github.com/HumanDopamina/Aplicacion_web_Sistema_Clinico/tree/main',
         description:
           'Aplicación para la gestión clínica y administrativa de una clínica odontológica: autenticación, roles y permisos, pacientes, expedientes, consultas, documentos, odontogramas y agenda de citas, con interfaz en React e API REST en Django.',
         tags: ['React', 'Vite', 'Tailwind CSS', 'Django', 'DRF'],
@@ -90,7 +90,7 @@
         name: 'Groove Archive',
         kind: 'E-commerce musical',
         year: '2025',
-        url: 'https://github.com/tu-usuario',
+        url: 'https://github.com/HumanDopamina/Groove-Archive',
         description:
           'E-commerce con storefront en Next.js y API en Django: catálogo con búsqueda y filtros, carrito persistente, cuentas de usuario, checkout, pedidos y reserva de inventario. Integración de PostgreSQL, Redis, Celery, MinIO y Docker.',
         tags: ['Next.js', 'Django', 'PostgreSQL', 'Redis', 'Celery', 'Docker'],
