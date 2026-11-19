@@ -1,0 +1,251 @@
+@import 'tailwindcss';
+@import './styles/themes.css';
+
+/* ============================================================
+   TOKENS GLOBALES
+   Fuentes, radios y puntos de ruptura: no cambian con la paleta.
+   Los colores de cada tema viven en src/styles/themes.css.
+   ============================================================ */
+@theme {
+  /* Los valores reales los define cada paleta con [data-theme='...'].
+     Aquí solo quedan como respaldo para que Tailwind genere las
+     utilidades bg-bg, text-ink, border-line, etc. */
+  --color-bg: #F6F1E7;
+  --color-surface: #EAE2D4;
+  --color-surface-2: #DDD3C2;
+  --color-ink: #1E2421;
+  --color-ink-soft: #3C4541;
+  --color-muted: #667069;
+  --color-accent: #B54A32;
+  --color-on-accent: #FDF8F2;
+
+  --color-line: rgba(30, 36, 33, 0.22);
+  --color-line-soft: rgba(30, 36, 33, 0.11);
+
+  /* ---------- Tipografía ---------- */
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
+  --font-heading: 'Space Grotesk', var(--font-body);
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas,
+    monospace;
+
+  --default-font-family: var(--font-body);
+  --default-mono-font-family: var(--font-mono);
+
+  /* ---------- Radios ---------- */
+  --radius-sm: 6px;
+
+  /* ---------- Punto de ruptura del lateral ---------- */
+  --breakpoint-side: 861px;
+}
+
+/* ---------- Variables de layout ---------- */
+:root {
+  color-scheme: light;
+  --side-w: clamp(200px, 16vw, 250px);
+  --main-px: clamp(32px, 10vw, 124px);
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100svh;
+    color: var(--color-ink);
+    background-color: var(--color-bg);
+    background-image:
+      radial-gradient(
+        900px 700px at 82% 8%,
+        color-mix(in srgb, var(--color-accent) 10%, transparent),
+        transparent 62%
+      ),
+      radial-gradient(
+        820px 820px at 16% 18%,
+        color-mix(in srgb, var(--color-muted) 12%, transparent),
+        transparent 55%
+      ),
+      radial-gradient(
+        820px 820px at 82% 84%,
+        color-mix(in srgb, var(--color-muted) 9%, transparent),
+        transparent 55%
+      );
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.02);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(12px, 16px, 0);
+  }
+}
+
+@keyframes spin-very-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes preloader-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes preloader-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes preloader-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes preloader-brush {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes preloader-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Punto del hero: barre la primera línea y se apaga al llegar al final,
+   para que el siguiente punto aparezca ya en la segunda línea. */
+@keyframes hero-sweep-dot-first {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  98% {
+    left: 100%;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* El punto de la segunda línea permanece invisible hasta que el primero
+   termina y "salta" de línea. */
+@keyframes hero-sweep-dot-last {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  2% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 1;
+  }
+}

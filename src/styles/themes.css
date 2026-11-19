@@ -1,0 +1,61 @@
+/* ============================================================
+   PALETA "Papel & Lacre" — editorial cálida, tinta profunda y acento lacre
+   ============================================================ */
+
+@property --color-bg        { syntax: '<color>'; inherits: true; initial-value: #F6F1E7; }
+@property --color-surface   { syntax: '<color>'; inherits: true; initial-value: #EAE2D4; }
+@property --color-surface-2 { syntax: '<color>'; inherits: true; initial-value: #DDD3C2; }
+@property --color-ink       { syntax: '<color>'; inherits: true; initial-value: #1E2421; }
+@property --color-ink-soft  { syntax: '<color>'; inherits: true; initial-value: #3C4541; }
+@property --color-muted     { syntax: '<color>'; inherits: true; initial-value: #667069; }
+@property --color-accent    { syntax: '<color>'; inherits: true; initial-value: #B54A32; }
+@property --color-on-accent { syntax: '<color>'; inherits: true; initial-value: #FDF8F2; }
+@property --color-outline   { syntax: '<color>'; inherits: true; initial-value: #C6B9A6; }
+@property --color-line      { syntax: '<color>'; inherits: true; initial-value: rgba(30, 36, 33, 0.22); }
+@property --color-line-soft { syntax: '<color>'; inherits: true; initial-value: rgba(30, 36, 33, 0.11); }
+
+[data-theme='palette'] {
+  --color-bg:        #F6F1E7;
+  --color-surface:   #EAE2D4;
+  --color-surface-2: #DDD3C2;
+  --color-ink:       #1E2421;
+  --color-ink-soft:  #3C4541;
+  --color-muted:     #667069;
+  --color-accent:    #B54A32;
+  --color-on-accent: #FDF8F2;
+  --color-outline:   #C6B9A6;
+  --color-line:      rgba(30, 36, 33, 0.22);
+  --color-line-soft: rgba(30, 36, 33, 0.11);
+}
+
+/* ============================================================
+   VARIABLES DERIVADAS
+   ============================================================ */
+[data-theme] {
+  --color-accent-soft: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  --color-accent-line: color-mix(in srgb, var(--color-accent) 55%, transparent);
+  --color-shadow:      color-mix(in srgb, var(--color-ink) 35%, transparent);
+  --color-glow:        color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+/* ============================================================
+   TRANSICIONES GLOBALES
+   ============================================================ */
+:root {
+  transition:
+    --color-bg        750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-surface   750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-surface-2 750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-ink       750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-ink-soft  750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-muted     750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-accent    750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-on-accent 750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-outline   750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-line      750ms cubic-bezier(0.4, 0, 0.2, 1),
+    --color-line-soft 750ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { transition: none; }
+}
