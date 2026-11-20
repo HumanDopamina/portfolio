@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import BackgroundDecor from './components/BackgroundDecor'
+import CvDownloadButton from './components/CvDownloadButton'
 import HeroRole from './components/HeroRole'
 import { IntroContext } from './components/IntroContext'
 import Preloader from './components/Preloader'
@@ -100,6 +101,7 @@ function App() {
       <div className="relative isolate min-h-svh">
         {showPreloader && <Preloader exiting={preloaderExiting} />}
         <BackgroundDecor />
+        <CvDownloadButton />
         <Sidebar active={activeSection} onNavigate={setActiveSection} />
 
         <main className="relative z-10 px-[var(--gutter)] pt-[calc(88px+env(safe-area-inset-top))] side:ml-[var(--side-w)] side:w-[calc(100%-var(--side-w))] side:px-[var(--main-px)] side:pt-0">
