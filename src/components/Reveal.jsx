@@ -53,7 +53,7 @@ function Reveal({
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'none' : `translateY(${y}px)`,
-        transition: `opacity 700ms cubic-bezier(0.2, 0.8, 0.2, 1) ${delay}ms, transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1) ${delay}ms`,
+        transition: `opacity 700ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--reveal-delay, ${delay}ms), transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1) var(--reveal-delay, ${delay}ms)`,
         willChange: visible ? 'auto' : 'opacity, transform',
         ...props.style,
       }}

@@ -151,7 +151,10 @@ function Sidebar({ active = 'inicio', onNavigate }) {
           </Reveal>
         </div>
 
-        <Reveal delay={1500} className="flex flex-col gap-[18px]">
+        <Reveal
+          delay={1500}
+          className="flex flex-col gap-[18px] max-[861px]:[--reveal-delay:450ms]"
+        >
           <ul className="flex list-none gap-2" role="list">
             <li>
               <a
