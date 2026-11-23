@@ -16,7 +16,7 @@
     email: 'leonelher0307@gmail.com',
     location: 'Chinandega, Nicaragua',
     avatar: profileImg,
-    cv: '/Leonel_Hernandez_CV.pdf_2026_9_21.pdf',
+    cv: '/Leonel_Hernandez_S.pdf',
     socials: {
       github: 'https://github.com/HumanDopamina',
       linkedin: 'https://www.linkedin.com/in/leonelhernandez07/',
